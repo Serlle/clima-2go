@@ -1,0 +1,15 @@
+<h1>Consulta clima por codigo postal (MX) </h1>
+<% if flash[:alert] %>
+  <div style="color:red"><%= flash[:alert] %></div>
+<% end %>
+
+<%= form_with url: buscar_weather_path, method: :post, local: true do |form| %>
+  <div>
+    <%= label_tag :zip, "Codigo Postal:" %>
+    <%= text_field_tag :zip, params[:zip], placeholder: "eg. 28000", required: true %>
+  </div>
+  <div>
+    <%= submit_tag "Buscar Clima" %>
+  </div>
+<% end %>
+

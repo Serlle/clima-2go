@@ -1,0 +1,24 @@
+<% # Asume @data present %>
+<h2>Resultados</h2>
+
+<ul>
+  <li><strong>Codigo Postal:</strong> <%= @data["zip"] %></li>
+  <li><strong>Colonia:</strong> <%= @data["colonia"] %></li>
+  <li><strong>Latitud:</strong> <%= @data["lat"] %></li>
+  <li><strong>Longitud:</strong> <%= @data["lon"] %></li>
+</ul>
+
+<hr>
+
+<% # def ts_local(seg, offset); Time.at%>
+<h3>Clima Actual</h3>
+<ul>
+  <li><strong>Descripcion: </strong><%= @data["descripcion"] %></li>
+  <li><strong>Temperatura: </strong><%= @data["temperatura"] %></li>
+  <li><strong>Sesacion (C): </strong><%= @data["feels_like"] %></li>
+  <li><strong>Amanecer: </strong><%= @data["amanecer"] %></li>
+  <li><strong>Atardecer: </strong><%= @data["atardecer"] %></li>
+  <li><strong>Zona horaria (offset s): </strong><%= @data["tz_offset"] %></li>
+</ul>
+
+<%= link_to "Nueva busqueda", root_path %>
