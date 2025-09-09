@@ -14,41 +14,35 @@ Aplicación de prueba en **Ruby on Rails** que consulta el clima actual a partir
 
 ### ⚙️ Instalación
 1. Clonar el repositorio:
-   ```bash
-   git clone git@github.com:Serlle/clima-2go.git
-   cd weather-app
+```
+git clone git@github.com:Serlle/clima-2go.git
+cd weather-app
 ````
 
 2. Instalar dependencias:
-
-   ```bash
-   bundle install
-   ```
+```
+bundle install
+```
 3. Crear archivo `.env` en la raíz:
-
-   ```bash
-   OPENWEATHER_API_KEY=tu_api_key_aqui
-   ```
+```
+OPENWEATHER_API_KEY=tu_api_key_aqui
+```
 4. Ejecutar migraciones (si fueran necesarias):
-
-   ```bash
-   rails db:migrate
-   ```
-
+```
+rails db:migrate
+```
 ---
 
 ### ▶️ Uso
 
 1. Iniciar servidor:
-
-   ```bash
-   bin/rails s
-   ```
+```
+bin/rails s
+```
 2. Abrir en el navegador:
-
-   ```
-   http://localhost:3000
-   ```
+```
+http://localhost:3000
+```
 3. Ingresar un código postal válido de México (ejemplo: `28000` para Colima).
 
 ---
@@ -59,14 +53,12 @@ Aplicación de prueba en **Ruby on Rails** que consulta el clima actual a partir
 * Validación de ZIP (5 dígitos).
 * Llamada a API de OpenWeather.
 * Muestra:
-
   * Código postal y colonia/ciudad.
   * Latitud y longitud.
   * Descripción del clima (en español).
   * Temperatura actual y sensación térmica.
   * Hora de amanecer y atardecer.
   * Zona horaria (offset UTC).
-
 ---
 
 ### 🧩 Estructura del Proyecto
