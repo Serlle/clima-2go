@@ -12,12 +12,14 @@ class WeatherController < ApplicationController
       client = OpenWeatherClient.new(ENV["OPENWEATHER_API_KEY"])
       geo = client.geocoding_zip(cp) # { "lat"=>19.4326, "lon"=>-99.1332, "name"=>"Ciudad de México", "zip"=> "01000", "country"=>"MX" }
 
+      # Si la API no encuentra el ZIP, regresa error (o un hash sin lat/lon)
       unless geo.is_a?(Hash) && geo["lat"] && geo["lon"]
         return redirect_to root_path, alert: "Código postal no válido o no encontrado."
       end
 
       weather = client.current_weather(lat: geo["lat"], lon: geo["lon"])
       
+      # Usamos sesiones para no usar base de datos
       session[:resultado] = {
         "zip" => cp,
         "colonia" => geo["name"],
@@ -31,7 +33,7 @@ class WeatherController < ApplicationController
         "tz_offset" => weather["timezone"]
       }
 
-      redirect_to weather_show_path(id: "resultado")
+      redirect_to weather_path(id: "resultado")
 
     rescue => e
       Rails.logger.error(e.message)
